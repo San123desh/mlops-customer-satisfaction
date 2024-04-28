@@ -42,11 +42,18 @@ class DataStrategy(ABC):
 class DataDivideStrategy(DataStrategy):
 
 
-    def handle_data(self, data: pd.DataFrame) -> pd.DataFrame:
+    def handle_data(self, data: pd.DataFrame) -> Union[pd.DataFrame, pd.Series]:
         return super().handle_data(data)
 
 
+class DataCleaning:
+    def __init__(self,data: pd.DataFrame, strategy: DataStrategy):
+        self.data = data
+        self.strategy = strategy
 
+    def handle_data(self)
+    pass
+                           
 
 
 
