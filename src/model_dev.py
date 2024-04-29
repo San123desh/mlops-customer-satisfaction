@@ -11,7 +11,7 @@ class Model(ABC):
         pass
 
 class LinearRegressionModel(Model):
-    def train(self, X_train, y_train):
+    def train(self, X_train, y_train, **kwargs):
         
         try:
             reg = LinearRegression(**kwargs)
@@ -21,3 +21,4 @@ class LinearRegressionModel(Model):
         except Exception as e:
             logging.error(f"Error training model {e}")
             raise e
+        
