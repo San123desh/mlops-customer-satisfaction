@@ -11,7 +11,7 @@ class DataStrategy(ABC):
     def handle_data(self, data: pd.DataFrame) -> Union[pd.DataFrame, pd.Series]:
         pass
 
-class DataStrategy(ABC):
+class DataPreProcessStrategy(DataStrategy):
 
     def handle_data(self, data: pd.DataFrame) -> pd.DataFrame:
 
@@ -66,13 +66,6 @@ class DataCleaning:
         except Exception as e:
             logging.error(f"Error handling data {e}")
             raise e
-
-if __name__ == "__main__":
-    data = pd.read_csv("./data/olist_customers_data.csv")
-    data_cleaning = DataCleaning(data, DataPreProcessStrategy()) 
-    data_cleaning.handle_data()
-
-
 
 
 
