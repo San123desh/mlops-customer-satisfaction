@@ -2,7 +2,8 @@ import logging
 from typing import Tuple
 
 import pandas as pd
-from sklearn.base import RegressorMixin, r2_score
+from sklearn.metrics import r2_score
+from sklearn.base import RegressorMixin
 from typing_extensions import Annotated
 from zenml import step
 from src.evaluation import MSE,RMSE, R2
@@ -27,7 +28,7 @@ def evaluate_model(model: RegressorMixin,
         rmse_class = RMSE()
         rmse = rmse_class.calculate_scores(y_test, prediction)
 
-        return r2_score, rmse
+        return r2, rmse
     except Exception as e:
         logging.error(f"Error evaluating model {e}")
         raise e
