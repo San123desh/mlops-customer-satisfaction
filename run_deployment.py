@@ -81,3 +81,8 @@ def run_deployment (config: str, min_accuracy: float):
             )
 if __name__ == "__main__":
     run_deployment()
+
+
+
+
+    
